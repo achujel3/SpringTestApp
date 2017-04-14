@@ -19,12 +19,30 @@
                 <ref bean="point3"/>
             </list>
         </property>
+    </bean>
+
+    <bean id="triangleWithPoints" class="org.springTest.draw.triangle.TriangleOnlyPoints" autowire="constructor">
 
     </bean>
 
     <bean id="point3" class="org.springTest.draw.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
+    </bean>
+
+    <bean id="pointA" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="pointB" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="20"/>
+    </bean>
+
+    <bean id="pointC" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
     </bean>
 
     <alias name="triangle" alias="triangle-alias"/>

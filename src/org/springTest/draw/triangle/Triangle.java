@@ -8,6 +8,7 @@ public class Triangle {
     private int height;
     private List<Point> points;
 
+
     public List<Point> getPoints() {
         return points;
     }
@@ -46,10 +47,12 @@ public class Triangle {
     }
 
     public void draw() {
+        System.out.println("Triangle:");
         System.out.println(this.getHeight() + ", " + this.getType() + ". drawing triangle");
         for (Point point : this.getPoints()) {
             System.out.println("PointA: (" + point.getX() + ", " + point.getY() + ").");
         }
+        System.out.println();
     }
 
 }
