@@ -6,6 +6,24 @@
     <bean id="triangle" class="org.springTest.draw.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
+        <property name="pointA" ref="point1"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" ref="point3"/>
+    </bean>
+
+    <bean id="point1" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point2" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point3" class="org.springTest.draw.triangle.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="20"/>
     </bean>
 
 </beans>
