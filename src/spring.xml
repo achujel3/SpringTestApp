@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="triangle" class="org.springTest.draw.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
-        <property name="pointA">
-            <bean class="org.springTest.draw.triangle.Point">
-                <property name="x" value="0"/>
-                <property name="y" value="0"/>
-            </bean>
+        <property name="points">
+            <list>
+                <bean class="org.springTest.draw.triangle.Point">
+                    <property name="x" value="0"/>
+                    <property name="y" value="0"/>
+                </bean>
+                <bean id="point2" class="org.springTest.draw.triangle.Point">
+                    <property name="x" value="20"/>
+                    <property name="y" value="0"/>
+                </bean>
+                <ref bean="point3"/>
+            </list>
         </property>
-        <property name="pointB">
-            <bean id="point2" class="org.springTest.draw.triangle.Point">
-                <property name="x" value="20"/>
-                <property name="y" value="0"/>
-            </bean>
-        </property>
-        <property name="pointC">
-            <ref bean="point3"/>
-        </property>
+
     </bean>
 
     <bean id="point3" class="org.springTest.draw.triangle.Point">
