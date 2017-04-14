@@ -4,7 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="triangle" class="org.springTest.draw.triangle.Triangle">
-        <property name="type" value="vertical"></property>
+        <constructor-arg type="java.lang.String" value="Vertical"/>
+        <constructor-arg type="int" value="3"/>
     </bean>
 
 </beans>
