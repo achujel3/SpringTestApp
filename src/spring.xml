@@ -3,6 +3,38 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <bean id="parentTriangle" class="org.springTest.draw.triangle.Triangle">
+        <constructor-arg type="java.lang.String" value="Vertical"/>
+        <constructor-arg type="int" value="3"/>
+        <property name="points">
+            <list>
+                <bean class="org.springTest.draw.triangle.Point">
+                    <property name="x" value="0"/>
+                    <property name="y" value="0"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="childTriangle1" class="org.springTest.draw.triangle.Triangle" parent="parentTriangle">
+        <property name="points">
+            <list merge="true">
+                <bean id="point2" class="org.springTest.draw.triangle.Point">
+                    <property name="x" value="20"/>
+                    <property name="y" value="0"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="childTriangle2" class="org.springTest.draw.triangle.Triangle" parent="parentTriangle">
+        <property name="points">
+            <list merge="true">
+                <ref bean="point3"/>
+            </list>
+        </property>
+    </bean>
+
     <bean id="triangle" class="org.springTest.draw.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>

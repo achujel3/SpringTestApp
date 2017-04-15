@@ -41,5 +41,6 @@ public class TriangleOnlyPoints {
         System.out.println("PointA: (" + this.getPointA().getX() + ", " + this.getPointA().getY() + ").");
         System.out.println("PointB: (" + this.getPointB().getX() + ", " + this.getPointB().getY() + ").");
         System.out.println("PointC: (" + this.getPointC().getX() + ", " + this.getPointC().getY() + ").");
+        System.out.println();
     }
 }

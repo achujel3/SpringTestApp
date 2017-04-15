@@ -50,7 +50,7 @@ public class Triangle {
         System.out.println("Triangle:");
         System.out.println(this.getHeight() + ", " + this.getType() + ". drawing triangle");
         for (Point point : this.getPoints()) {
-            System.out.println("PointA: (" + point.getX() + ", " + point.getY() + ").");
+            System.out.println("Point: (" + point.getX() + ", " + point.getY() + ").");
         }
         System.out.println();
     }

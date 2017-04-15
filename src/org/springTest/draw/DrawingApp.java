@@ -17,6 +17,12 @@ public class DrawingApp {
         TriangleOnlyPoints triangleOnlyPoints = (TriangleOnlyPoints) applicationContext.getBean("triangleWithPoints");
         triangleOnlyPoints.draw();
 
+        Triangle childTriangle1 = (Triangle) applicationContext.getBean("childTriangle1");
+        childTriangle1.draw();
+
+        Triangle childTriangle2 = (Triangle) applicationContext.getBean("childTriangle2");
+        childTriangle2.draw();
+
     }
 
 }
