@@ -1,6 +1,9 @@
 package org.springTest.draw.triangle;
 
-public class TriangleOnlyPoints {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class TriangleOnlyPoints implements InitializingBean, DisposableBean {
 
     private Point pointA;
     private Point pointB;
@@ -42,5 +45,23 @@ public class TriangleOnlyPoints {
         System.out.println("PointB: (" + this.getPointB().getX() + ", " + this.getPointB().getY() + ").");
         System.out.println("PointC: (" + this.getPointC().getX() + ", " + this.getPointC().getY() + ").");
         System.out.println();
+    }
+
+    public void cleanUp() {
+        System.out.println("This is a cleanUp method in TriangleOnlyPoints class (set in xml)");
+    }
+
+    public void onInit() {
+        System.out.println("This is an onInit method in TraingleOnlyPoints class (set in xml)");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("This is a destroy method in TriangleOnlyPoints class");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("This is after property setting method in TriangleOnlyPoints class");
     }
 }

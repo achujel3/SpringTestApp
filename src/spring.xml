@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="parentTriangle" class="org.springTest.draw.triangle.Triangle">
+    <bean id="parentTriangle" name="parentTriangle" class="org.springTest.draw.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
         <property name="points">
@@ -16,7 +16,8 @@
         </property>
     </bean>
 
-    <bean id="childTriangle1" class="org.springTest.draw.triangle.Triangle" parent="parentTriangle">
+    <bean id="childTriangle1" name="childTriangle1" class="org.springTest.draw.triangle.Triangle"
+          parent="parentTriangle">
         <property name="points">
             <list merge="true">
                 <bean id="point2" class="org.springTest.draw.triangle.Point">
@@ -27,7 +28,8 @@
         </property>
     </bean>
 
-    <bean id="childTriangle2" class="org.springTest.draw.triangle.Triangle" parent="parentTriangle">
+    <bean id="childTriangle2" name="childTriangle2" class="org.springTest.draw.triangle.Triangle"
+          parent="parentTriangle">
         <property name="points">
             <list merge="true">
                 <ref bean="point3"/>
@@ -35,7 +37,7 @@
         </property>
     </bean>
 
-    <bean id="triangle" class="org.springTest.draw.triangle.Triangle">
+    <bean id="triangle" name="triangle" class="org.springTest.draw.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
         <property name="points">
@@ -53,30 +55,33 @@
         </property>
     </bean>
 
-    <bean id="triangleWithPoints" class="org.springTest.draw.triangle.TriangleOnlyPoints" autowire="constructor">
+    <bean id="triangleWithPoints" name="triangleWithPoints" class="org.springTest.draw.triangle.TriangleOnlyPoints"
+          autowire="constructor" init-method="onInit" destroy-method="cleanUp">
 
     </bean>
 
-    <bean id="point3" class="org.springTest.draw.triangle.Point">
+    <bean id="point3" name="point3" class="org.springTest.draw.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>
 
-    <bean id="pointA" class="org.springTest.draw.triangle.Point">
+    <bean id="pointA" name="pointA" class="org.springTest.draw.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="pointB" class="org.springTest.draw.triangle.Point">
+    <bean id="pointB" name="pointB" class="org.springTest.draw.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>
 
-    <bean id="pointC" class="org.springTest.draw.triangle.Point">
+    <bean id="pointC" name="pointC" class="org.springTest.draw.triangle.Point">
         <property name="x" value="20"/>
         <property name="y" value="0"/>
     </bean>
 
     <alias name="triangle" alias="triangle-alias"/>
+
+    <bean class="org.springTest.draw.postProcessors.DisplayNameBeanPostProcessor"/>
 
 </beans>
