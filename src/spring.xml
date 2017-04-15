@@ -82,7 +82,6 @@
     </bean>
 
     <bean id="circle" name="circle" class="org.springTest.draw.shape.circle.Circle">
-        <property name="center" ref="point0"/>
     </bean>
 
     <bean id="point0" name="point0" class="org.springTest.draw.shape.triangle.Point">
@@ -97,5 +96,7 @@
     <!--<bean class="org.springTest.draw.postProcessors.MyBeanFactoryPostProcessor">-->
     <!--<property name="locations" value="pointconfig.properties"/>-->
     <!--</bean>-->
+
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
 </beans>

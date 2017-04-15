@@ -2,6 +2,7 @@ package org.springTest.draw.shape.circle;
 
 import org.springTest.draw.shape.Shape;
 import org.springTest.draw.shape.triangle.Point;
+import org.springframework.beans.factory.annotation.Required;
 
 public class Circle implements Shape {
 
@@ -11,6 +12,7 @@ public class Circle implements Shape {
         return center;
     }
 
+    @Required
     public void setCenter(Point center) {
         this.center = center;
     }

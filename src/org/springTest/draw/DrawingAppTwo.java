@@ -12,7 +12,6 @@ public class DrawingAppTwo {
         Shape shape= (Shape) applicationContext.getBean("circle");
         shape.draw();
 
-
     }
 
 }
