@@ -1,7 +1,7 @@
 package org.springTest.draw;
 
-import org.springTest.draw.triangle.Triangle;
-import org.springTest.draw.triangle.TriangleOnlyPoints;
+import org.springTest.draw.shape.triangle.Triangle;
+import org.springTest.draw.shape.triangle.TriangleOnlyPoints;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -1,9 +1,10 @@
-package org.springTest.draw.triangle;
+package org.springTest.draw.shape.triangle;
 
+import org.springTest.draw.shape.Shape;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class TriangleOnlyPoints implements InitializingBean, DisposableBean {
+public class TriangleOnlyPoints implements InitializingBean, DisposableBean, Shape {
 
     private Point pointA;
     private Point pointB;
@@ -39,6 +40,7 @@ public class TriangleOnlyPoints implements InitializingBean, DisposableBean {
         this.pointC = pointC;
     }
 
+    @Override
     public void draw() {
         System.out.println("TriangleOnlyPoints");
         System.out.println("PointA: (" + this.getPointA().getX() + ", " + this.getPointA().getY() + ").");

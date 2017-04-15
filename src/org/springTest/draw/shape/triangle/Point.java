@@ -1,4 +1,4 @@
-package org.springTest.draw.triangle;
+package org.springTest.draw.shape.triangle;
 
 public class Point {
 

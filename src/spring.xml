@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="parentTriangle" name="parentTriangle" class="org.springTest.draw.triangle.Triangle">
+    <bean id="parentTriangle" name="parentTriangle" class="org.springTest.draw.shape.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
         <property name="points">
             <list>
-                <bean class="org.springTest.draw.triangle.Point">
+                <bean class="org.springTest.draw.shape.triangle.Point">
                     <property name="x" value="0"/>
                     <property name="y" value="0"/>
                 </bean>
@@ -16,11 +16,11 @@
         </property>
     </bean>
 
-    <bean id="childTriangle1" name="childTriangle1" class="org.springTest.draw.triangle.Triangle"
+    <bean id="childTriangle1" name="childTriangle1" class="org.springTest.draw.shape.triangle.Triangle"
           parent="parentTriangle">
         <property name="points">
             <list merge="true">
-                <bean id="point2" class="org.springTest.draw.triangle.Point">
+                <bean id="point2" class="org.springTest.draw.shape.triangle.Point">
                     <property name="x" value="20"/>
                     <property name="y" value="0"/>
                 </bean>
@@ -28,7 +28,7 @@
         </property>
     </bean>
 
-    <bean id="childTriangle2" name="childTriangle2" class="org.springTest.draw.triangle.Triangle"
+    <bean id="childTriangle2" name="childTriangle2" class="org.springTest.draw.shape.triangle.Triangle"
           parent="parentTriangle">
         <property name="points">
             <list merge="true">
@@ -37,16 +37,16 @@
         </property>
     </bean>
 
-    <bean id="triangle" name="triangle" class="org.springTest.draw.triangle.Triangle">
+    <bean id="triangle" name="triangle" class="org.springTest.draw.shape.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
         <constructor-arg type="int" value="3"/>
         <property name="points">
             <list>
-                <bean class="org.springTest.draw.triangle.Point">
+                <bean class="org.springTest.draw.shape.triangle.Point">
                     <property name="x" value="0"/>
                     <property name="y" value="0"/>
                 </bean>
-                <bean id="point2" class="org.springTest.draw.triangle.Point">
+                <bean id="point2" class="org.springTest.draw.shape.triangle.Point">
                     <property name="x" value="20"/>
                     <property name="y" value="0"/>
                 </bean>
@@ -55,33 +55,47 @@
         </property>
     </bean>
 
-    <bean id="triangleWithPoints" name="triangleWithPoints" class="org.springTest.draw.triangle.TriangleOnlyPoints"
+    <bean id="triangleWithPoints" name="triangleWithPoints"
+          class="org.springTest.draw.shape.triangle.TriangleOnlyPoints"
           autowire="constructor" init-method="onInit" destroy-method="cleanUp">
 
     </bean>
 
-    <bean id="point3" name="point3" class="org.springTest.draw.triangle.Point">
+    <bean id="point3" name="point3" class="org.springTest.draw.shape.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>
 
-    <bean id="pointA" name="pointA" class="org.springTest.draw.triangle.Point">
+    <bean id="pointA" name="pointA" class="org.springTest.draw.shape.triangle.Point">
+        <property name="x" value="1"/>
+        <property name="y" value="1"/>
+    </bean>
+
+    <bean id="pointB" name="pointB" class="org.springTest.draw.shape.triangle.Point">
         <property name="x" value="0"/>
+        <property name="y" value="20"/>
+    </bean>
+
+    <bean id="pointC" name="pointC" class="org.springTest.draw.shape.triangle.Point">
+        <property name="x" value="20"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="pointB" name="pointB" class="org.springTest.draw.triangle.Point">
-        <property name="x" value="0"/>
-        <property name="y" value="20"/>
+    <bean id="circle" name="circle" class="org.springTest.draw.shape.circle.Circle">
+        <property name="center" ref="point0"/>
     </bean>
 
-    <bean id="pointC" name="pointC" class="org.springTest.draw.triangle.Point">
-        <property name="x" value="20"/>
+    <bean id="point0" name="point0" class="org.springTest.draw.shape.triangle.Point">
+        <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>
 
     <alias name="triangle" alias="triangle-alias"/>
 
     <bean class="org.springTest.draw.postProcessors.DisplayNameBeanPostProcessor"/>
+
+    <!--<bean class="org.springTest.draw.postProcessors.MyBeanFactoryPostProcessor">-->
+    <!--<property name="locations" value="pointconfig.properties"/>-->
+    <!--</bean>-->
 
 </beans>

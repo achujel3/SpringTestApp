@@ -1,8 +1,10 @@
-package org.springTest.draw.triangle;
+package org.springTest.draw.shape.triangle;
+
+import org.springTest.draw.shape.Shape;
 
 import java.util.List;
 
-public class Triangle {
+public class Triangle implements Shape {
 
     private String type;
     private int height;
@@ -46,6 +48,7 @@ public class Triangle {
         this.height = height;
     }
 
+    @Override
     public void draw() {
         System.out.println("Triangle:");
         System.out.println(this.getHeight() + ", " + this.getType() + ". drawing triangle");
