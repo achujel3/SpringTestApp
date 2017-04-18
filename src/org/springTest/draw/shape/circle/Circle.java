@@ -2,7 +2,10 @@ package org.springTest.draw.shape.circle;
 
 import org.springTest.draw.shape.Shape;
 import org.springTest.draw.shape.triangle.Point;
-import org.springframework.beans.factory.annotation.Required;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 public class Circle implements Shape {
 
@@ -12,7 +15,7 @@ public class Circle implements Shape {
         return center;
     }
 
-    @Required
+    @Resource(name = "point0")
     public void setCenter(Point center) {
         this.center = center;
     }
@@ -21,4 +24,15 @@ public class Circle implements Shape {
     public void draw() {
         System.out.println("Drawing a circle = (" + this.getCenter().getX() + ", " + this.getCenter().getY() + ").");
     }
+
+    @PostConstruct
+    public void initializeCircle() {
+        System.out.println("Init of circle");
+    }
+
+    @PreDestroy
+    public void destroyCircle() {
+        System.out.println("Destroy of Circle");
+    }
+
 }

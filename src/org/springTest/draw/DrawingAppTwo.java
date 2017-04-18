@@ -9,6 +9,7 @@ public class DrawingAppTwo {
     public static void main(String[] args) {
 
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        applicationContext.registerShutdownHook();
         Shape shape= (Shape) applicationContext.getBean("circle");
         shape.draw();
 

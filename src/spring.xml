@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="parentTriangle" name="parentTriangle" class="org.springTest.draw.shape.triangle.Triangle">
         <constructor-arg type="java.lang.String" value="Vertical"/>
@@ -82,6 +83,7 @@
     </bean>
 
     <bean id="circle" name="circle" class="org.springTest.draw.shape.circle.Circle">
+        <!-- Defined in Circle class, near @Resource -->
     </bean>
 
     <bean id="point0" name="point0" class="org.springTest.draw.shape.triangle.Point">
@@ -93,10 +95,8 @@
 
     <bean class="org.springTest.draw.postProcessors.DisplayNameBeanPostProcessor"/>
 
-    <!--<bean class="org.springTest.draw.postProcessors.MyBeanFactoryPostProcessor">-->
-    <!--<property name="locations" value="pointconfig.properties"/>-->
-    <!--</bean>-->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
-    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+    <context:annotation-config/>
 
 </beans>
