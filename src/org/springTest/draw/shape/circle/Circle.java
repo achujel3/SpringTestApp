@@ -2,11 +2,13 @@ package org.springTest.draw.shape.circle;
 
 import org.springTest.draw.shape.Shape;
 import org.springTest.draw.shape.triangle.Point;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
+@Component
 public class Circle implements Shape {
 
     private Point center;

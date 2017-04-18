@@ -82,10 +82,6 @@
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="circle" name="circle" class="org.springTest.draw.shape.circle.Circle">
-        <!-- Defined in Circle class, near @Resource -->
-    </bean>
-
     <bean id="point0" name="point0" class="org.springTest.draw.shape.triangle.Point">
         <property name="x" value="0"/>
         <property name="y" value="0"/>
@@ -98,5 +94,7 @@
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
     <context:annotation-config/>
+
+    <context:component-scan base-package="org.springTest" />
 
 </beans>
